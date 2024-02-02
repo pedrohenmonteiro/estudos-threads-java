@@ -12,7 +12,7 @@ public class Banheiro {
       synchronized(this) {
         System.out.println(nome + " Entrando no banheiro");
 
-        if(estaSujo) esperarFora(nome);
+        while(estaSujo) esperarFora(nome);
 
         System.out.println(nome + " Fazendo coisa rapida");
 
@@ -22,10 +22,12 @@ public class Banheiro {
             e.printStackTrace();
         }
 
+        this.estaSujo = true;
+
+
         System.out.println(nome + " Dando descarga");
         System.out.println(nome + " Lavando Mao");
         System.out.println(nome + " Saindo do banheiro");
-        this.estaSujo = true;
 
       }
     }
@@ -38,7 +40,8 @@ public class Banheiro {
       synchronized(this) {
         System.out.println(nome + " Entrando no banheiro");
 
-        if(estaSujo) esperarFora(nome);
+        while(estaSujo) esperarFora(nome);
+
 
         System.out.println(nome + " Fazendo coisa demorada");
 
@@ -48,10 +51,11 @@ public class Banheiro {
             e.printStackTrace();
         }
 
+        this.estaSujo = true;
+
         System.out.println(nome + " Dando descarga");
         System.out.println(nome + " Lavando Mao");
         System.out.println(nome + " Saindo do banheiro");
-        this.estaSujo = true;
       }
 
     }

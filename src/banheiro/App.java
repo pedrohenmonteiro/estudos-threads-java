@@ -6,8 +6,9 @@ public class App {
 
         Thread convidado1 = new Thread(new TarefaNumero1(banheiro), "João");
         Thread convidado2 = new Thread(new TarefaNumero2(banheiro), "Maria");
-        // Thread convidado3 = new Thread(new TarefaNumero1(banheiro), "Pedro");
         Thread limpeza = new Thread(new TarefaLimpeza(banheiro), "Limpeza");
+        limpeza.setDaemon(true); //Thread secundaria, depende de outras
+        // Thread convidado3 = new Thread(new TarefaNumero1(banheiro), "Pedro");
         // Thread convidado4 = new Thread(new TarefaNumero2(banheiro), "Lucas");
 
 
